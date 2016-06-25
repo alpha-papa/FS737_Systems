@@ -1,20 +1,15 @@
 #include "Hardware.h"
-#include <iostream>
 
 namespace fssystems
 {
 
-	// VALVES for Hardware Simulation
+	// VALVES for generic valve simulation
 
-	// Constructor
-	// To-Do: add initialization of name and state?
 	VALVE::VALVE()
 	{
 		valvestate actual_state = sSHUT;
 	}
 
-	// Statemachine
-	// To-Do: add debug messages?
 	void VALVE::run_machine(bool open_command, bool power)
 	{
 		switch (actual_state) {
@@ -38,14 +33,12 @@ namespace fssystems
 		}
 	}
 	
-	// Setstate
-	// Currently no use
 	void VALVE::setstate(valvestate new_state)
 	{
 		actual_state = new_state;
 	}
 
-	// PUMPS for Hardware Simulation
+	// PUMPS for generic pump simulation
 	PUMP::PUMP()
 	{
 		pumpstate actual_state = sOFF;
@@ -87,6 +80,7 @@ namespace fssystems
 		actual_state = new_state;
 	}
 
+	// PIPELINES, special use for Fuel System
 	PIPELINE::PIPELINE()
 	{
 		actual_state = sSHUTOFF;
@@ -98,8 +92,6 @@ namespace fssystems
 		{
 			if (ownpumps[i] == sON || (foreignpumps[i] == sON && xfeed)) pump_available = true;
 		}
-
-		// pipelinestate old_state = actual_state;
 		switch (actual_state) {
 		case sSHUTOFF:
 			if (shutoff == sSHUT) actual_state = sSHUTOFF;
@@ -119,6 +111,7 @@ namespace fssystems
 			break;
 		}
 	}
+
 	void PIPELINE::setstate(pipelinestate new_state)
 	{
 		actual_state = new_state;
