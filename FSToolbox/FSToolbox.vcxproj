@@ -72,8 +72,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>C:\Users\Marcel\Documents\Visual Studio 2015\Projects\FS737_Interface;$(IncludePath)</IncludePath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Users\Marcel\Documents\Visual Studio 2015\Projects\FS737_Interface;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Arvid Preuss\Documents\Visual Studio 2015\Projects\FS737_Interface;C:\Users\Arvid Preuss\Documents\Visual Studio 2015\Projects\FS737_Interface\FSInterface;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Arvid Preuss\Documents\Visual Studio 2015\Projects\FS737_Interface;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\Users\Marcel\Documents\Visual Studio 2015\Projects\FS737_Interface;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -139,11 +145,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FS737_Interface\FSInterface\FSInterface.vcxproj">
-      <Project>{6a0413ad-1218-4bd8-ad29-ac7f93346ef1}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="FSIcm.h" />
     <ClInclude Include="Hardware.h" />
     <ClInclude Include="LightController.h" />
@@ -152,10 +153,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FSIcm.cpp" />
-    <ClCompile Include="LightController.cpp" />
     <ClCompile Include="Hardware.cpp" />
+    <ClCompile Include="LightController.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TimerManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FS737_Interface\FSInterface\FSInterface.vcxproj">
+      <Project>{6a0413ad-1218-4bd8-ad29-ac7f93346ef1}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,13 +1,13 @@
 //
-//  VOICEREC.hpp
+//  MIP.hpp
 //  FS737_Systems
 //
 //  Created by Marcel Haupt on 15.06.16.
 //  Copyright © 2016 Marcel Haupt. All rights reserved.
 //
 
-#ifndef VOICEREC_hpp
-#define VOICEREC_hpp
+#ifndef MIP_hpp
+#define MIP_hpp
 
 #include "Panel.h"
 #include "FSToolbox/FSIcm.h"
@@ -23,20 +23,16 @@ namespace fssystems
     using fstoolbox::TimerManager;
     using fstoolbox::Timer;
     
-    class VOICEREC : public Panel
+    class MIP : public Panel
     {
     private:
-        static VOICEREC * instance;
-        Timer test_light_on_timer;
-        Timer test_light_off_timer;
+        static MIP * instance;
         
     public:
-        VOICEREC();
+        MIP();
         static void fsiOnVarReceive(FSIID id);
-        static void enableTestLight();
-        static void disableTestLight();
     };
     
 }
 
-#endif /* VOICEREC_hpp */
+#endif /* MIP_hpp */

@@ -1,13 +1,13 @@
 //
-//  VOICEREC.hpp
+//  FIRE.hpp
 //  FS737_Systems
 //
 //  Created by Marcel Haupt on 15.06.16.
 //  Copyright © 2016 Marcel Haupt. All rights reserved.
 //
 
-#ifndef VOICEREC_hpp
-#define VOICEREC_hpp
+#ifndef FIRE_hpp
+#define FIRE_hpp
 
 #include "Panel.h"
 #include "FSToolbox/FSIcm.h"
@@ -23,20 +23,17 @@ namespace fssystems
     using fstoolbox::TimerManager;
     using fstoolbox::Timer;
     
-    class VOICEREC : public Panel
+    class FIRE : public Panel
     {
     private:
-        static VOICEREC * instance;
-        Timer test_light_on_timer;
-        Timer test_light_off_timer;
+        static FIRE * instance;
         
     public:
-        VOICEREC();
+        FIRE();
         static void fsiOnVarReceive(FSIID id);
-        static void enableTestLight();
-        static void disableTestLight();
     };
     
 }
 
-#endif /* VOICEREC_hpp */
+
+#endif /* FIRE_hpp */

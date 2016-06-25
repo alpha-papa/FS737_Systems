@@ -3,7 +3,7 @@
 namespace fssystems
 {
 	typedef enum { sOPEN = 1, sSHUT, sOPENING, sCLOSING } valvestate;
-	typedef enum { sON = 1, sOFF, sFAIL } pumpstate;
+	typedef enum { sON = 1, sOFF, sFAIL, sNOFLUID } pumpstate;
 	typedef enum { sPRESSURIZED = 1, sUNPRESSURIZED, sSHUTOFF } pipelinestate;
 
 	class VALVE
@@ -13,7 +13,7 @@ namespace fssystems
 	public:
 		VALVE();
 		valvestate actual_state;
-		void run_machine(bool open_command);
+		void run_machine(bool open_command, bool power);
 		void setstate(valvestate new_state);
 	};
 
@@ -24,7 +24,7 @@ namespace fssystems
 	public:		
 		PUMP();
 		pumpstate actual_state;
-		void run_machine(bool _switch, bool power, bool fail);
+		void run_machine(bool _switch, bool power, bool fail, bool fluid);
 		void setstate(pumpstate new_state);
 	};
 
